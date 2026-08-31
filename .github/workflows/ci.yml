@@ -49,4 +49,7 @@ jobs:
         run: echo "Test job is ready. Add CI-safe tests before enabling full test execution."
 
       - name: Run CI-safe tests
-        run: mvn -B -Dtest=AgentStateTest test
+        run:
+          mvn -B
+          -Dtest=AgentStateTest,JChatMindV1UnitTest,RunCucumberTest
+          test

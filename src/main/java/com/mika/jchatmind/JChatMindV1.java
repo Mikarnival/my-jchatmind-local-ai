@@ -84,7 +84,10 @@ public class JChatMindV1 {
      */
     public String chat(String userInput) {
 
-        Assert.notNull(userInput, "User input must not be null");
+        Assert.hasText(
+                userInput,
+                "User input must not be null or blank"
+        );
 
         if (agentState != AgentState.IDLE) {
             throw new IllegalStateException("Agent is not in IDLE state, current state: " + agentState);
@@ -105,7 +108,10 @@ public class JChatMindV1 {
             // Call LLM
             ChatResponse response = chatClient.prompt(prompt).call().chatResponse();
 
-            Assert.notNull(response, "ChatResponse must not be null");
+            Assert.hasText(
+                    userInput,
+                    "User input must not be null or blank"
+            );
 
             AssistantMessage assistantMessage = response.getResult().getOutput();
             String aiResponse = assistantMessage.getText();
@@ -126,6 +132,10 @@ public class JChatMindV1 {
             // Reset state for next request
             agentState = AgentState.IDLE;
         }
+    }
+
+    public AgentState getAgentState() {
+        return agentState;
     }
 
     /**
