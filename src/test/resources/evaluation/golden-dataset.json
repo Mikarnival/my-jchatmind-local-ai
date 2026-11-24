@@ -1,0 +1,20 @@
+[
+  {
+    "id": "EVAL-001",
+    "category": "factual_accuracy",
+    "input": "What is the capital of Germany?",
+    "expectedFacts": ["Berlin"]
+  },
+  {
+    "id": "EVAL-002",
+    "category": "factual_accuracy",
+    "input": "Which planet is known as the Red Planet?",
+    "expectedFacts": ["Mars"]
+  },
+  {
+    "id": "EVAL-003",
+    "category": "factual_accuracy",
+    "input": "Who developed the theory of general relativity?",
+    "expectedFacts": ["Einstein"]
+  }
+]
